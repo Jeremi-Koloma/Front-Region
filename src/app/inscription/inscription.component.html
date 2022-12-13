@@ -3,47 +3,77 @@
         <div class="col-md-6 offset-md-3 shadowContour cardBorder">
             <div class="card cardBorder ">
                 <div class="card-header headerLogin">
-                    <h3 class="text-center text-uppercase"><i class="bi bi-box-arrow-in-right"></i> Login</h3>
+                    <h3 class="text-center text-uppercase"><i class="bi bi-box-arrow-in-right"></i> Inscription</h3>
                 </div>
                 <div class="card-block" style="padding: 25px;">
-                    <form>
+                    <form [formGroup]="inscriptionValidation" (ngSubmit)="onSubmit()">
                         <fieldset>
-                            <!-- Message d'erreur --
-                                <div class="alert alert-danger">
-                                    Votre Nom ou mots de passe incorrecte !
-                                </div>
-                                 Message de succes 
-                                <div class="alert alert-success">
-                                    Connecter avec Succès !
-                                </div>  -->
-
                             <!-- ------------------- UserName ------------------------
                                 ------------------------------------------------------
                             -->
                             <div class="form-group mb-3 col-12 col-md-12">
-                                <label for="lName"> Nom d'utilisateur</label>
-                                <input type="text" class="form-control" id="lName" name="lName" placeholder="Votre nom">
+                                <label for="userName"> Nom d'utilisateur</label>
+                                <input formControlName="userName"
+                                    [ngClass]="{'is-invalid':submitted && inscriptionValidation.controls['userName'].errors}"
+                                    type="text" class="form-control" id="userName" name="userName"
+                                    placeholder="Votre nom">
+                                <div *ngIf="submitted && inscriptionValidation.controls['userName'].errors"
+                                    class="text-danger">
+                                    <div
+                                        *ngIf="submitted && inscriptionValidation.controls['userName'].errors['required']">
+                                        Veillez remplir ce champs !
+                                    </div>
+                                    <div
+                                        *ngIf="submitted && inscriptionValidation.controls['userName'].errors['minlength']">
+                                        Au minimuim 4 caractères !
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- ------------------- Email ------------------------
                                 ------------------------------------------------------
                             -->
                             <div class="form-group mb-3 col-12 col-md-12">
-                                <label for="email"><i class="bi bi-envelope"></i> Votre mail*</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+                                <label for="email"><i class="bi bi-envelope"></i> Adresse mail*</label>
+                                <input formControlName="email"
+                                    [ngClass]="{'is-invalid':submitted && inscriptionValidation.controls['email'].errors}"
+                                    type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+                                <div *ngIf="submitted && inscriptionValidation.controls['email'].errors"
+                                    class="text-danger">
+                                    <div
+                                        *ngIf="submitted && inscriptionValidation.controls['email'].errors['required']">
+                                        Veillez remplir ce champs !
+                                    </div>
+                                    <div *ngIf="submitted && inscriptionValidation.controls['email'].errors['email']">
+                                        E-mail Invalid !
+                                    </div>
+                                </div>
                             </div>
                             <!-- ------------------- Password ------------------------
                                 ------------------------------------------------------
                             -->
                             <div class="form-group mb-3 col-12 col-md-12">
                                 <label for="password"><i class="bi bi-lock"></i> Mots de passe*</label>
-                                <input type="password" class="form-control" id="password" name="password"
+                                <input formControlName="password"
+                                    [ngClass]="{'is-invalid':submitted && inscriptionValidation.controls['email'].errors}"
+                                    type="password" class="form-control" id="password" name="password"
                                     placeholder="mots de passe">
+                                <div *ngIf="submitted && inscriptionValidation.controls['password'].errors"
+                                    class="text-danger">
+                                    <div
+                                        *ngIf="submitted && inscriptionValidation.controls['password'].errors['required']">
+                                        Mots de passe obligatoire !
+                                    </div>
+                                    <div
+                                        *ngIf="submitted && inscriptionValidation.controls['password'].errors['minlength']">
+                                        Au minimuim 8 caractères !
+                                    </div>
+                                </div>
                             </div>
                             <!-- ---------------- Boutton Inscription ----------------
                                 ------------------------------------------------------
                             -->
-                            <div class="form-actions">
+                            <div class="form-group">
                                 <button type="submit" class="btn btnInscrire">S'inscrire</button>
                             </div>
                         </fieldset>
