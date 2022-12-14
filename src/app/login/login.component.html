@@ -3,26 +3,27 @@
         <div class="col-md-6 offset-md-3 shadowContour cardBorder">
             <div class="card cardBorder ">
                 <div class="card-header headerLogin">
-                    <h3 class="text-center text-uppercase bolLogin"><i class="bi bi-box-arrow-in-right"></i> Connexion</h3>
+                    <h3 class="text-center text-uppercase bolLogin"><i class="bi bi-box-arrow-in-right"></i> Connexion
+                    </h3>
                 </div>
                 <div class="card-block" style="padding: 25px;">
-                    <form>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <fieldset>
-                            <!-- Message d'erreur --
-                                <div class="alert alert-danger">
-                                    Votre Nom ou mots de passe incorrecte !
-                                </div>
-                                 Message de succes 
-                                <div class="alert alert-success">
-                                    Connecter avec Succès !
-                                </div>  -->
 
                             <!-- ------------------- UserName ------------------------
                                 ------------------------------------------------------
                             -->
                             <div class="form-group mb-3 col-12 col-md-12">
-                                <label for="lName"> Nom d'utilisateur</label>
-                                <input type="text" class="form-control" id="lName" name="lName" placeholder="Votre nom">
+                                <label for="userName"> Nom d'utilisateur</label>
+                                <input formControlName="userName"
+                                    [ngClass]="{'is-invalid' : submitted && loginForm.controls['userName'].errors}"
+                                    type="text" class="form-control" id="userName" name="userName"
+                                    placeholder="Votre nom">
+                                <div *ngIf="submitted && loginForm.controls['userName'].errors" class="text-danger">
+                                    <div *ngIf="submitted && loginForm.controls['userName'].errors['required']">
+                                        Veillez remplir ce champs !
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- ------------------- Password ------------------------
@@ -30,8 +31,18 @@
                             -->
                             <div class="form-group mb-3 col-12 col-md-12">
                                 <label for="password"><i class="bi bi-lock"></i> Mots de passe*</label>
-                                <input type="password" class="form-control" id="password" name="password"
+                                <input formControlName="password"
+                                    [ngClass]="{'is-invalid' : submitted && loginForm.controls['password'].errors}"
+                                    type="password" class="form-control" id="password" name="password"
                                     placeholder="mots de passe">
+                                <div *ngIf="submitted && loginForm.controls['password'].errors" class="text-danger">
+                                    <div *ngIf="submitted && loginForm.controls['password'].errors['required']">
+                                        Veillez remplir ce champs !
+                                    </div>
+                                    <div *ngIf="submitted && loginForm.controls['password'].errors['minlength']">
+                                        Au 8 caractères minimuim !
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- ------------------- Boutton se Loger ------------------------
@@ -40,7 +51,7 @@
                             <div class="form-actions mb-2">
                                 <button type="submit" class="btn btnInscrire">Se connecter</button>
                             </div>
-                            <p class="pNoAccount">Vous n’avez pas de  compte ?</p>
+                            <p class="pNoAccount">Vous n’avez pas de compte ?</p>
                         </fieldset>
                     </form>
 

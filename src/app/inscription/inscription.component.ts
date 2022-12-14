@@ -16,12 +16,12 @@ export class InscriptionComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    // Validation, on prend notre variable déclarer pour avoir accès aux formGroupe de FormBuilder
+    // Validation, on prend notre variable déclarer pour avoir accès aux formGroupe de FormBuilder qui est dans le constructeur;
     this.inscriptionValidation = this.formBuilder.group({
       // Déclarons les validations qu'on souhaite avoir.
       // On importe Validators ou mètre à jours les imports, 1ère validation c'est required
       // Quand l'utilisateur ne mets rien, un message s'affichera que userName est obigatoire.
-      // le userName est à Binder au niveau de input dans le formulaire dans formControlName="userName" avec {ngClase}
+      // le userName est à Binder au niveau de input dans le formulaire dans formControlName="userName" avec {ngClass}
       userName: ['', [Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]]
@@ -39,8 +39,6 @@ export class InscriptionComponent implements OnInit {
     } else {
       alert("Inscrit avec Succèss !")
     }
-
-
 
   }
 

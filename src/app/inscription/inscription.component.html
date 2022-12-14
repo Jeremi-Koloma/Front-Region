@@ -55,7 +55,7 @@
                             <div class="form-group mb-3 col-12 col-md-12">
                                 <label for="password"><i class="bi bi-lock"></i> Mots de passe*</label>
                                 <input formControlName="password"
-                                    [ngClass]="{'is-invalid':submitted && inscriptionValidation.controls['email'].errors}"
+                                    [ngClass]="{'is-invalid':submitted && inscriptionValidation.controls['password'].errors}"
                                     type="password" class="form-control" id="password" name="password"
                                     placeholder="mots de passe">
                                 <div *ngIf="submitted && inscriptionValidation.controls['password'].errors"
