@@ -3,10 +3,55 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.banner-image {
+/* .banner-image {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assets/bg-6.jpg);
   background-size: cover;
+} */
+
+/* ------------------ Animation Banner--------------------
+----------------------------------------------------------
+--------------------------------------------------------*/
+.banner-image {
+  animation: diaposition 7s reverse infinite;
+  -webkit-animation: animation_diaposition 7s reverse infinite;
 }
+
+@keyframes animation_diaposition {
+  0% {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assets/bg-6.jpg);
+    background-size: cover;
+  }
+
+  25% {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assets/bg-6.jpg);
+    background-size: cover;
+  }
+
+  50% {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assets/bg-9.jpg);
+    background-size: cover;
+  }
+
+  70% {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assets/bg-9.jpg);
+    background-size: cover;
+  }
+
+  80% {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assets/bg-6.jpg);
+    background-size: cover;
+  }
+
+  100% {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assets/bg-6.jpg);
+    background-size: cover;
+  }
+}
+
+
+/* ------------------ Sous tire en bas de Bienvenue --------------------
+-------------------------------------------------------------------------
+-----------------------------------------------------------------------*/
 
 .psousTitre {
   color: #fff;
@@ -14,6 +59,18 @@
   text-transform: uppercase;
   font-weight: 700;
   position: relative;
-  line-height: 10px;
+  line-height: 15px;
 
+}
+.tourist{
+  background: #EFCA08;
+  border-radius: 10px;
+  color: rgb(48, 42, 42);
+}
+
+/* --------------- Le premier tire Mali en Générale --------------------
+------------------------------------------------------------------------
+----------------------------------------------------------------------*/
+.titreMali {
+  font-weight: 600;
 }
