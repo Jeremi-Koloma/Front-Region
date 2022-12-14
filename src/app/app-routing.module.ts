@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [
-  {path: "/inscription",component: InscriptionComponent}
+  {path: "",component: InscriptionComponent}
 ];
 
 @NgModule({

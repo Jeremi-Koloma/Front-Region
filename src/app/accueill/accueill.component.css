@@ -1,0 +1,19 @@
+* {
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,600;1,700&display=swap');
+  font-family: 'Poppins', sans-serif;
+}
+
+.banner-image {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assets/bg-6.jpg);
+  background-size: cover;
+}
+
+.psousTitre {
+  color: #fff;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+  line-height: 10px;
+
+}
