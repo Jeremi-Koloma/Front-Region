@@ -1,0 +1,77 @@
+* {
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,600;1,700&display=swap');
+    font-family: 'Poppins', sans-serif;
+}
+
+.bgAllRegion {
+    background: #273D31;
+    width: 100%;
+}
+
+.content {
+    padding-top: 15%;
+}
+
+.bgBigImg{
+    background: #fff;
+    border-radius: 10px;
+}
+
+
+.borderComent{
+    background: #dfdfe2;
+    border-radius: 10px;
+}
+.userProfil img{
+    border: 1px solid rgba(104, 100, 100, 0.863);
+    
+}
+.btnToComment{
+    background: #15564E;
+    color: #fff;
+}
+.btnToComment:hover{
+    background: #f39c12;
+    color: black;
+}
+
+/* --------------- Footer ---------------------------------------------
+------------------------------------------------------------------------
+----------------------------------------------------------------------*/
+.bg-footer {
+    background-color: #1C2922 !important;
+}
+.footer {
+  padding: 60px 0;
+  position: relative;
+  color: #fff;
+}
+
+
+.footer.footer-bar {
+  padding: 30px 0;
+  border-top: 1px solid #f39c12;
+}
+
+
+.social-icon.social li a {
+    color: #adb5bd;
+    border-color: #adb5bd;
+}
+.social-icon li a {
+    color: #35404e;
+    border: 1px solid #35404e;
+    display: inline-block;
+    height: 32px;
+    text-align: center;
+    font-size: 15px;
+    width: 32px;
+    line-height: 30px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    position: relative;
+}
+.rounded {
+    border-radius: 5px !important;
+}

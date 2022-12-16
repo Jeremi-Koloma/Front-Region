@@ -10,6 +10,7 @@ import { AccueillComponent } from './accueill/accueill.component';
 import { RegionComponent } from './region/region.component';
 import { AdminComponent } from './admin/admin.component';
 import { GestionRegionsComponent } from './gestion-regions/gestion-regions.component';
+import { DetailsRegionComponent } from './details-region/details-region.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GestionRegionsComponent } from './gestion-regions/gestion-regions.compo
     AccueillComponent,
     RegionComponent,
     AdminComponent,
-    GestionRegionsComponent
+    GestionRegionsComponent,
+    DetailsRegionComponent
   ],
   imports: [
     BrowserModule,
