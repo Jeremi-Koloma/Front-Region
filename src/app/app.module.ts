@@ -8,6 +8,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { LoginComponent } from './login/login.component';
 import { AccueillComponent } from './accueill/accueill.component';
 import { RegionComponent } from './region/region.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RegionComponent } from './region/region.component';
     InscriptionComponent,
     LoginComponent,
     AccueillComponent,
-    RegionComponent
+    RegionComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
