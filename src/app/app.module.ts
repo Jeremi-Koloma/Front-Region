@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { AccueillComponent } from './accueill/accueill.component';
 import { RegionComponent } from './region/region.component';
 import { AdminComponent } from './admin/admin.component';
+import { GestionRegionsComponent } from './gestion-regions/gestion-regions.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AdminComponent } from './admin/admin.component';
     LoginComponent,
     AccueillComponent,
     RegionComponent,
-    AdminComponent
+    AdminComponent,
+    GestionRegionsComponent
   ],
   imports: [
     BrowserModule,

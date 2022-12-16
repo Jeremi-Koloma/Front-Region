@@ -1,0 +1,147 @@
+.bgAllRegion {
+    background-color:#797979d7;
+    width: 100%;
+}
+* {
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,600;1,700&display=swap');
+    font-family: 'Poppins', sans-serif;
+}
+
+.content{
+    padding-top: 10%;
+}
+
+
+
+/* --------------- Tableau ---------------------------------------------
+------------------------------------------------------------------------
+----------------------------------------------------------------------*/
+.btnAjouterRegion{
+    background: #046563;
+    color: #fff;
+    font-weight: 600;
+}
+.btnAjouterRegion:hover{
+    background: #EFCA08;
+}
+
+    .project-list-table {
+        border-collapse: separate;
+        border-spacing: 0 12px
+    }
+    
+    .project-list-table tr {
+        background-color: #fff
+    }
+    
+    .table-nowrap td, .table-nowrap th {
+        white-space: nowrap;
+    }
+    .table-borderless>:not(caption)>*>* {
+        border-bottom-width: 0;
+    }
+    .table>:not(caption)>*>* {
+        padding: 0.75rem 0.75rem;
+        background-color: var(--bs-table-bg);
+        border-bottom-width: 1px;
+        box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+    }
+    
+    .avatar-sm {
+        height: 2rem;
+        width: 2rem;
+    }
+    .rounded-circle {
+        border-radius: 50%!important;
+    }
+    .me-2 {
+        margin-right: 0.5rem!important;
+    }
+    img, svg {
+        vertical-align: middle;
+    }
+    
+    a {
+        color: #3b76e1;
+        text-decoration: none;
+    }
+    
+    .badge-soft-danger {
+        color: #f56e6e !important;
+        background-color: rgba(245,110,110,.1);
+    }
+    .badge-soft-success {
+        color: #63ad6f !important;
+        background-color: rgba(99,173,111,.1);
+    }
+    
+    .badge-soft-primary {
+        color: #3b76e1 !important;
+        background-color: rgba(59,118,225,.1);
+    }
+    
+    .badge-soft-info {
+        color: #57c9eb !important;
+        background-color: rgba(87,201,235,.1);
+    }
+    
+    .avatar-title {
+        align-items: center;
+        background-color: #3b76e1;
+        color: #fff;
+        display: flex;
+        font-weight: 500;
+        height: 100%;
+        justify-content: center;
+        width: 100%;
+    }
+    .bg-soft-primary {
+        background-color: rgba(59,118,225,.25)!important;
+    }
+
+
+
+
+/* --------------- Footer ---------------------------------------------
+------------------------------------------------------------------------
+----------------------------------------------------------------------*/
+.bg-footer {
+    background-color: #1C2922 !important;
+}
+
+.footer {
+    padding: 60px 0;
+    position: relative;
+    color: #fff;
+}
+
+
+.footer.footer-bar {
+    padding: 30px 0;
+    border-top: 1px solid #f39c12;
+}
+
+
+.social-icon.social li a {
+    color: #adb5bd;
+    border-color: #adb5bd;
+}
+
+.social-icon li a {
+    color: #35404e;
+    border: 1px solid #35404e;
+    display: inline-block;
+    height: 32px;
+    text-align: center;
+    font-size: 15px;
+    width: 32px;
+    line-height: 30px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.rounded {
+    border-radius: 5px !important;
+}
