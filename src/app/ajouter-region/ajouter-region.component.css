@@ -1,0 +1,74 @@
+
+* {
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,600;1,700&display=swap');
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --------------- Image Bacground ---------------------------------------------
+------------------------------------------------------------------------
+----------------------------------------------------------------------*/
+.banner-image {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../assets/bg-6.jpg);
+    background-size: cover;
+    width: 100%;
+}
+
+.content{
+    padding-top: 10%;
+}
+
+.bgFormulaire{
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px 6px rgba(0, 0, 0, 0.25);
+}
+
+.btnAjouterRegion{
+    background: #046563;
+    color: #fff;
+}
+.btnAjouterRegion:hover{
+    background: #EFCA08;
+    color: black;
+}
+
+/* --------------- Footer ---------------------------------------------
+------------------------------------------------------------------------
+----------------------------------------------------------------------*/
+.bg-footer {
+    background-color: #1C2922 !important;
+}
+.footer {
+  padding: 60px 0;
+  position: relative;
+  color: #fff;
+}
+
+
+.footer.footer-bar {
+  padding: 30px 0;
+  border-top: 1px solid #f39c12;
+}
+
+
+.social-icon.social li a {
+    color: #adb5bd;
+    border-color: #adb5bd;
+}
+.social-icon li a {
+    color: #35404e;
+    border: 1px solid #35404e;
+    display: inline-block;
+    height: 32px;
+    text-align: center;
+    font-size: 15px;
+    width: 32px;
+    line-height: 30px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    position: relative;
+}
+.rounded {
+    border-radius: 5px !important;
+}

@@ -11,6 +11,8 @@ import { RegionComponent } from './region/region.component';
 import { AdminComponent } from './admin/admin.component';
 import { GestionRegionsComponent } from './gestion-regions/gestion-regions.component';
 import { DetailsRegionComponent } from './details-region/details-region.component';
+import { AjouterRegionComponent } from './ajouter-region/ajouter-region.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { DetailsRegionComponent } from './details-region/details-region.componen
     RegionComponent,
     AdminComponent,
     GestionRegionsComponent,
-    DetailsRegionComponent
+    DetailsRegionComponent,
+    AjouterRegionComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
