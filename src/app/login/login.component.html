@@ -7,8 +7,13 @@
                     </h3>
                 </div>
                 <div class="card-block" style="padding: 25px;">
-                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <form [formGroup]="loginForm" name="form" #f="ngForm" (ngSubmit)="onSubmit()">
                         <fieldset>
+                            <!-- 
+                            <div>
+                                <div>UserName : {{form.username}} </div>
+                                <div>Password : {{form.password}} </div>
+                            </div> -->
 
                             <!-- ------------------- UserName ------------------------
                                 ------------------------------------------------------
@@ -18,7 +23,7 @@
                                 <input formControlName="userName"
                                     [ngClass]="{'is-invalid' : submitted && loginForm.controls['userName'].errors}"
                                     type="text" class="form-control" id="userName" name="userName"
-                                    placeholder="Votre nom">
+                                    placeholder="Votre nom" [(ngModel)]="form.username" #username>
                                 <div *ngIf="submitted && loginForm.controls['userName'].errors" class="text-danger">
                                     <div *ngIf="submitted && loginForm.controls['userName'].errors['required']">
                                         Veillez remplir ce champs !
@@ -34,7 +39,7 @@
                                 <input formControlName="password"
                                     [ngClass]="{'is-invalid' : submitted && loginForm.controls['password'].errors}"
                                     type="password" class="form-control" id="password" name="password"
-                                    placeholder="mots de passe">
+                                    placeholder="mots de passe" [(ngModel)]="form.password" #password>
                                 <div *ngIf="submitted && loginForm.controls['password'].errors" class="text-danger">
                                     <div *ngIf="submitted && loginForm.controls['password'].errors['required']">
                                         Veillez remplir ce champs !

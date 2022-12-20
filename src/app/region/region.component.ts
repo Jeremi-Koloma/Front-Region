@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ServiceRegionService } from '../Services/service-region.service';
 
 @Component({
   selector: 'app-region',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./region.component.css']
 })
 export class RegionComponent implements OnInit {
+  // une varible pour lister les regions
+  allRegion : any;
 
-  constructor() { }
+  // Injections des dépendance, injectons le servce dans le constructeur
+  constructor(private serviceRegion : ServiceRegionService) { }
 
   ngOnInit(): void {
+    // Pour le Menu
     var nav = document.querySelector('nav'); // cette variable nav est Binder avec la balise nav de de menu
 
     window.addEventListener('scroll', function(){
@@ -20,7 +26,17 @@ export class RegionComponent implements OnInit {
       else{
         nav!.classList.remove('bg-dark')
       }
-    });
+    }); // Fin MENU
+
+    // On appel la méthode getAllRegion  du Service 
+   this.serviceRegion.getAllRegion().subscribe(data =>{
+    this.allRegion = data;
+    console.log("---------------------------",this.allRegion)
+
+   })
+    
+
+
   }
 
 }

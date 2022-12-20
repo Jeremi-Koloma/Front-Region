@@ -13,6 +13,7 @@ import { GestionRegionsComponent } from './gestion-regions/gestion-regions.compo
 import { DetailsRegionComponent } from './details-region/details-region.component';
 import { AjouterRegionComponent } from './ajouter-region/ajouter-region.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   imports: [
     BrowserModule,
     ReactiveFormsModule, // Pour Activer ReactiveFormsModule après l'importation
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule // Pour les Requêtes Http
   ],
   providers: [],
   bootstrap: [AppComponent]
