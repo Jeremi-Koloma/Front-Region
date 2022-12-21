@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from '../_services/token.service'; // importation du TokenService
 
 @Component({
   selector: 'app-admin',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  // Injectons le Service token pour bénéficier de la méthode deconnexion
+  constructor(private tokenService : TokenService) { }
 
   ngOnInit(): void {
     var nav = document.querySelector('nav'); // cette variable nav est Binder avec la balise nav de de menu
@@ -23,6 +25,12 @@ export class AdminComponent implements OnInit {
     });
 
     
+  }
+
+  // méthode déconnexion
+  logout() : void{
+    // On appel le tokenService pour bénéficier de la méthode déconnexion
+    this.tokenService.clearToken() // Suppression du token
   }
 
 }

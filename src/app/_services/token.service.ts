@@ -25,5 +25,10 @@ export class TokenService {
      return !! token; // !! tranforme la variable token en boolean si le token n'existe pas, ça sera null ou false ne boolean
   }
 
+  // une méthode pour déconnexion 
+  clearToken():void{
+    localStorage.removeItem('token') // on déruit le token dans localStorage
+    this.router.navigate(['/']) // on retourne à la racine
+  }
 
 }
