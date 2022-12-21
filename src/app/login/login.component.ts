@@ -1,6 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ICredential } from '../_interfaces/credential'; // Importation de l'interface Icredential
+import { AuthService } from '../_services/auth.service'; // Importantion du service Authentification 
+import { TokenService } from '../_services/token.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,9 +12,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   // Two way Binding | Récupération des valeurs dans le formulaire;
-  form :any = {
-    username : null,
-    password : null
+  // Le form sera de type Icredentials notre interface.
+  form : ICredential = {
+    username : '',
+    password : ''
   }
 
   // Déclarons une variable de même nom que celui qui se trouve dans le formulaire html pour les Binder
@@ -19,8 +23,9 @@ export class LoginComponent implements OnInit {
   submitted = false // C'est-à-dire que par defaut le formulaire n'est pas valider
 
   // Dans le constructeur, importons FormBuilder de Angular pour le traitement du formulaire
-  // injectons HttpClient pour notre requête postLogin
-  constructor(private formBuilder: FormBuilder, private http : HttpClient) { }
+  // Injectons notre Service d'Authentification dans le constructeur
+  //Injectons le service Token dans le constructeur
+  constructor(private formBuilder: FormBuilder, private authService : AuthService, private tokenService : TokenService ) { }
 
   ngOnInit(): void {
     // Lorsque le component est initialiser, on utilise notre loginForm pour avoir accèss aux Groupe de FormBuilder qui est dans le constructeur;
@@ -45,12 +50,17 @@ export class LoginComponent implements OnInit {
     else {
       alert("Connecter avec succès !")
       // Affichage des identifiants de user
-      console.log(this.form);
-      this.http.post('http://localhost:8080/login',this.form).subscribe(
+      console.log(this.form)
+      // Appelons notre login dans le service
+      this.authService.login(this.form).subscribe(
         // cette méthode a deux méthodes,
 
         // La prémière méthode si tout va bien
-        data => console.log(data),
+        data => {
+          console.log(data.access_Token),
+          // Pour savegarder notre token dans le navigateur, on appel la méthode saveToken du serviceToken et on l'envoie note access_Token
+          this.tokenService.saveToken(data.access_Token)
+        },
         // Deuxième méthode si ya Erreur
         err => console.log(err)
       )

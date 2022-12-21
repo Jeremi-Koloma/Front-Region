@@ -9,6 +9,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegionComponent } from './region/region.component';
+import { AuthGuard } from './_helpers/auth.guard';
 
 // Gestion des Routes
 const routes: Routes = [
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path: 'details-region',component: DetailsRegionComponent}, // page détails d'une Région
   {path: 'gestion-region',component: GestionRegionsComponent}, // Page gestion des Régions
   {path: 'accueil',component: AccueillComponent},
-  {path: 'admin',component: AdminComponent}, // Dashboard Admin
+  {path: 'admin',component: AdminComponent, canActivate :[AuthGuard]}, // le gardien // Dashboard Admin
   {path: '',redirectTo: 'accueil', pathMatch:'full'}, // Route par défaut;
   {path: '**',component: PageNotFoundComponent} // Notre page d'Erreur. Tout chémin non défini sera 404
   
