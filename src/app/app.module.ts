@@ -14,6 +14,10 @@ import { DetailsRegionComponent } from './details-region/details-region.componen
 import { AjouterRegionComponent } from './ajouter-region/ajouter-region.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GestionUsersComponent } from './gestion-users/gestion-users.component';
+import { TokenInterceptorProvider } from './_helpers/token.interceptor';
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     GestionRegionsComponent,
     DetailsRegionComponent,
     AjouterRegionComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    GestionUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule // Pour les Requêtes Http
   ],
-  providers: [],
+  providers: [TokenInterceptorProvider], // notre intercepteur des requêtte
   bootstrap: [AppComponent]
 })
 export class AppModule { }

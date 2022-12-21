@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TokenService } from '../_services/token.service'; // importation du TokenService
 
 @Component({
@@ -9,7 +10,8 @@ import { TokenService } from '../_services/token.service'; // importation du Tok
 export class AdminComponent implements OnInit {
 
   // Injectons le Service token pour bénéficier de la méthode deconnexion
-  constructor(private tokenService : TokenService) { }
+  // Injectons le serve Router pour faire la redirection vers la liste des users
+  constructor(private tokenService : TokenService, private router : Router) { }
 
   ngOnInit(): void {
     var nav = document.querySelector('nav'); // cette variable nav est Binder avec la balise nav de de menu
@@ -31,6 +33,11 @@ export class AdminComponent implements OnInit {
   logout() : void{
     // On appel le tokenService pour bénéficier de la méthode déconnexion
     this.tokenService.clearToken() // Suppression du token
+  }
+
+  // une méthode pour aller à la page gestion des users
+  allUser(){
+    this.router.navigate(['gestion-users'])
   }
 
 }
