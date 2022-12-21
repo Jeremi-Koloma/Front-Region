@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ServiceRegionService } from '../Services/service-region.service';
 
 @Component({
   selector: 'app-region',
@@ -8,11 +6,8 @@ import { ServiceRegionService } from '../Services/service-region.service';
   styleUrls: ['./region.component.css']
 })
 export class RegionComponent implements OnInit {
-  // une varible pour lister les regions
-  allRegion : any;
-
-  // Injections des dépendance, injectons le servce dans le constructeur
-  constructor(private serviceRegion : ServiceRegionService) { }
+ 
+  constructor() { }
 
   ngOnInit(): void {
     // Pour le Menu
@@ -27,13 +22,6 @@ export class RegionComponent implements OnInit {
         nav!.classList.remove('bg-dark')
       }
     }); // Fin MENU
-
-    // On appel la méthode getAllRegion  du Service 
-   this.serviceRegion.getAllRegion().subscribe(data =>{
-    this.allRegion = data;
-    console.log("---------------------------",this.allRegion)
-
-   })
     
 
 

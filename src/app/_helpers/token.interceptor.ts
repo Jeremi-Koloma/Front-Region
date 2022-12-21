@@ -34,7 +34,7 @@ export class TokenInterceptor implements HttpInterceptor {
        return next.handle(clone).pipe( // mécanisme de reponse
         catchError(error=> {
           console.log(error) // on affiche error
-          
+          // Si la session est Espiré, on ecrasse le token
           this.tokenService.clearTokenExpired()
           return throwError('Votre session est Expiré !')
         })

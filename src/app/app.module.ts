@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,7 +37,8 @@ import { TokenInterceptorProvider } from './_helpers/token.interceptor';
     BrowserModule,
     ReactiveFormsModule, // Pour Activer ReactiveFormsModule après l'importation
     AppRoutingModule,
-    HttpClientModule // Pour les Requêtes Http
+    HttpClientModule,
+    FormsModule // Pour les Requêtes Http
   ],
   providers: [TokenInterceptorProvider], // notre intercepteur des requêtte
   bootstrap: [AppComponent]

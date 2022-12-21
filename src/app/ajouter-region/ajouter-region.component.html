@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="bgFormulaire p-4 col-12 offset-md-3 col-md-6">
                     <div class="row">
-                        <form>
+                        <form #regionForm="ngForm" (ngSubmit)="getRegionData(regionForm.value)">
                             <fieldset>
                                 <legend class="legend text-center fs-2">Ajouter une Région</legend>
                                 <hr>
@@ -53,14 +53,14 @@
                                 ------------------------------------------------------->
                                     <div class="form-group mb-3 col-12 col-md-6">
                                         <label for="regName"> Nom de Région</label>
-                                        <input type="text" class="form-control" id="regName" name="regName"
+                                        <input type="text" ngModel class="form-control" id="regName" name="nomRegion"
                                             placeholder="Bamako">
                                     </div>
                                     <!-- ------------------- Code Region ------------------------
                                 ------------------------------------------------------->
                                     <div class="form-group mb-3 col-12 col-md-6">
                                         <label for="codeRegion"> Code de Région</label>
-                                        <input type="text" class="form-control" id="codeRegion" name="codeRegion"
+                                        <input type="text" ngModel class="form-control" id="codeRegion" name="codeRegion"
                                             placeholder="Bko">
                                     </div>
                                 </div>
@@ -70,31 +70,31 @@
                                 ------------------------------------------------------->
                                     <div class="form-group mb-3 col-12 col-md-6">
                                         <label for="domRegion"> Domaine d'activité</label>
-                                        <input type="text" class="form-control" id="domRegion" name="domRegion"
+                                        <input type="text" ngModel class="form-control" id="domRegion" name="activiteRegion"
                                             placeholder="Business">
                                     </div>
                                     <!-- ------------------- superficie ------------------------
                                 ------------------------------------------------------->
                                     <div class="form-group mb-3 col-12 col-md-6">
                                         <label for="superfRegion"> Superficie</label>
-                                        <input type="text" class="form-control" id="superfRegion" name="superfRegion"
+                                        <input type="text" ngModel class="form-control" id="superfRegion" name="superficieRegion"
                                             placeholder="11223 km2">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <!-- ------------------- Population ------------------------
                                 ------------------------------------------------------->
-                                    <div class="form-group mb-3 col-12 col-md-6">
+                                    <!-- <div class="form-group mb-3 col-12 col-md-6">
                                         <label for="population"> Nombre de population</label>
-                                        <input type="text" class="form-control" id="population" name="population"
+                                        <input type="text" ngModel class="form-control" id="population" name="population"
                                             placeholder="29120 /htbs">
-                                    </div>
+                                    </div> -->
 
                                     <!-- ------------------- langue ------------------------
                                  ------------------------------------------------------->
                                     <div class="form-group mb-3 col-12 col-md-6">
                                         <label for="langueRegion">Langue majoritaire</label>
-                                        <input type="text" class="form-control" id="langueRegion" name="langueRegion"
+                                        <input type="text" ngModel class="form-control" id="langueRegion" name="langueParler"
                                             placeholder="Bambara">
                                     </div>
                                 </div>

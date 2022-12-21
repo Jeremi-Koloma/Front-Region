@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Region } from '../_models/region';
+import { RegionService } from '../_services/region.service';
 
 @Component({
   selector: 'app-ajouter-region',
@@ -7,7 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AjouterRegionComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private regionService : RegionService) { }
+
+  // Notre models
+  ToAddRegion:Region = {
+
+    codeRegion: '',
+    
+    nomRegion: '',
+
+    activiteRegion :'',
+
+    superficieRegion :'',
+    
+    langueParler :''
+  }
+
+  codeRegion :string= '';
+  
+  nomRegion :string= '';
+
+  activiteRegion :string= '';
+
+  superficieRegion :string= '';
+  
+  langueParler :string= '';
 
   ngOnInit(): void {
     var nav = document.querySelector('nav'); // cette variable nav est Binder avec la balise nav de de menu
@@ -22,5 +49,17 @@ export class AjouterRegionComponent implements OnInit {
       }
     });
   }
+
+  getRegionData(data:any){
+    console.log(data)
+    //
+    this.regionService.addRegion(data).subscribe(
+      data =>{
+        this.ToAddRegion = data
+        console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',data)
+      }
+    )
+  }
+
 
 }
