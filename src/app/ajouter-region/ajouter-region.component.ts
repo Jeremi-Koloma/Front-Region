@@ -12,7 +12,7 @@ export class AjouterRegionComponent implements OnInit {
 
   constructor(private regionService : RegionService) { }
 
-  // Notre models
+  // utiliser une interface de notre models
   ToAddRegion:Region = {
 
     codeRegion: '',
@@ -26,17 +26,9 @@ export class AjouterRegionComponent implements OnInit {
     langueParler :''
   }
 
-  codeRegion :string= '';
-  
-  nomRegion :string= '';
-
-  activiteRegion :string= '';
-
-  superficieRegion :string= '';
-  
-  langueParler :string= '';
 
   ngOnInit(): void {
+    // Notre Menu
     var nav = document.querySelector('nav'); // cette variable nav est Binder avec la balise nav de de menu
 
     window.addEventListener('scroll', function(){
@@ -47,17 +39,22 @@ export class AjouterRegionComponent implements OnInit {
       else{
         nav!.classList.remove('bg-dark')
       }
-    });
+    }); // Fin Notre Menu
   }
 
-  getRegionData(data:any){
+  // Binding de la méthode qui se trouve dans le html au niveau du form
+  getRegionData(data:Region){
     console.log(data)
     //
     this.regionService.addRegion(data).subscribe(
+      // Cette méthode prend deux méthode
+      // La prémière si tout va bien
       data =>{
-        this.ToAddRegion = data
-        console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',data)
-      }
+        this.ToAddRegion = data,
+        console.log('----------- Régon Ajouter --------- ',data)
+      },
+      // Et si ya erreur, on affiche Erreur
+      err => console.log(err)
     )
   }
 

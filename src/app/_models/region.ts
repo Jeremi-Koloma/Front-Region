@@ -1,3 +1,4 @@
+// Notre classe Models comme même propriétés avec celui du Backend
 export class Region {
 
     codeRegion !: string;

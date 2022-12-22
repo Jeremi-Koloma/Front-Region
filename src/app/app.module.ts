@@ -37,8 +37,8 @@ import { TokenInterceptorProvider } from './_helpers/token.interceptor';
     BrowserModule,
     ReactiveFormsModule, // Pour Activer ReactiveFormsModule après l'importation
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule // Pour les Requêtes Http
+    HttpClientModule, // Pour les Requêtes Http
+    FormsModule // pour les ngForm
   ],
   providers: [TokenInterceptorProvider], // notre intercepteur des requêtte
   bootstrap: [AppComponent]
