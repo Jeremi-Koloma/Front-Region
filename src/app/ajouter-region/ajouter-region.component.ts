@@ -44,8 +44,7 @@ export class AjouterRegionComponent implements OnInit {
 
   // Binding de la méthode qui se trouve dans le html au niveau du form
   getRegionData(data:Region){
-    console.log(data)
-    //
+    // Appélons notre region service pour bénéficier de la méthode addRegion
     this.regionService.addRegion(data).subscribe(
       // Cette méthode prend deux méthode
       // La prémière si tout va bien

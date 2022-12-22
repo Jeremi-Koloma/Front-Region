@@ -82,22 +82,23 @@
                 <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora aut unde eaque,
                     soluta impedit exercitationem sit labore aspernatur cumque, omnis similique incidunt eum asperiores
                     doloribus illum quasi perferendis provident ad.</p>
+
                 <div class="row mt-5">
-                    <div class="col-12 col-md-6">
+                    <div *ngFor="let region of regionList | paginate:{itemsPerPage:4, currentPage:p}" class="col-12 col-md-6">
                         <div class="boderCard mb-3">
                             <div class="row">
                                 <div class="col-12 col-md-12 col-lg-5 bgGaucheCard">
                                     <div class="p-3">
-                                        <h2 class="h3 bgRegionName text-center text-uppercase ">Koutiala</h2>
-                                        <p>Code Région : KTL</p>
+                                        <h2 class="h3 bgRegionName text-center text-uppercase ">{{region.nomRegion}}</h2>
+                                        <p>Code Région : <span class="text-uppercase">{{region.codeRegion}}</span></p>
                                         <hr>
-                                        <p>Domaine : Agriculture</p>
+                                        <p>Domaine : {{region.activiteRegion}}</p>
                                         <hr>
-                                        <p>Superficie : 384 Km2</p>
+                                        <p>Superficie : {{region.superficieRegion}}</p>
                                         <hr>
                                         <p>Population : 384 hbts</p>
                                         <hr>
-                                        <p>Langues : Minianka </p>
+                                        <p>Langues : <span class="text-uppercase">{{region.langueParler}} </span></p>
                                         <hr>
                                     </div>
                                 </div>
@@ -115,101 +116,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <div class="boderCard mb-3">
-                            <div class="row">
-                                <div class="col-12 col-md-12 col-lg-5 bgGaucheCard">
-                                    <div class="p-3">
-                                        <h2 class="h3 bgRegionName text-center text-uppercase ">Ségou</h2>
-                                        <p>Code Région : MPT</p>
-                                        <hr>
-                                        <p>Domaine : Elévage</p>
-                                        <hr>
-                                        <p>Superficie : 78O Km2</p>
-                                        <hr>
-                                        <p>Population : 784 hbts</p>
-                                        <hr>
-                                        <p>Langues : Bambara </p>
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-12 col-lg-7">
-                                    <img src="../../assets/region-Ségou.jpg" alt="Image Mopti" class="w-100 h-100">
-                                    <div class="flagMali">
-                                        <img src="../../assets/mali.png" alt="flag">
-                                    </div>
-                                    <div class="numberHabits">
-                                        <p>784<span class="htps">/hbts</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <!--- Pour la paginnation -->
+                    <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                    
                 </div>
-                <div class="row my-3">
-                    <div class="col-12 col-md-6">
-                        <div class="boderCard mb-3">
-                            <div class="row">
-                                <div class="col-12 col-md-12 col-lg-5 bgGaucheCard">
-                                    <div class="p-3">
-                                        <h2 class="h3 bgRegionName text-center text-uppercase ">Mopti</h2>
-                                        <p>Code Région : KTL</p>
-                                        <hr>
-                                        <p>Domaine : Agriculture</p>
-                                        <hr>
-                                        <p>Superficie : 384 Km2</p>
-                                        <hr>
-                                        <p>Population : 384 hbts</p>
-                                        <hr>
-                                        <p>Langues : Minianka </p>
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-12 col-lg-7">
-                                    <img src="../../assets/region-Mopti.jpg" alt="Image Mopti" class="w-100 h-100">
-                                    <div class="flagMali">
-                                        <img src="../../assets/mali.png" alt="flag">
-                                    </div>
-                                    <div class="numberHabits">
-                                        <p>384<span class="htps">/hbts</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="boderCard mb-3">
-                            <div class="row">
-                                <div class="col-12 col-md-12 col-lg-5 bgGaucheCard">
-                                    <div class="p-3">
-                                        <h2 class="h3 bgRegionName text-center text-uppercase ">Gao</h2>
-                                        <p>Code Région : MPT</p>
-                                        <hr>
-                                        <p>Domaine : Elévage</p>
-                                        <hr>
-                                        <p>Superficie : 78O Km2</p>
-                                        <hr>
-                                        <p>Population : 784 hbts</p>
-                                        <hr>
-                                        <p>Langues : Bambara </p>
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-12 col-lg-7">
-                                    <img src="../../assets/region-Gao.jpg" alt="Image Mopti"
-                                        class="w-100 h-100 bgImage">
-                                    <div class="flagMali">
-                                        <img src="../../assets/mali.png" alt="flag">
-                                    </div>
-                                    <div class="numberHabits">
-                                        <p>784<span class="htps">/hbts</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

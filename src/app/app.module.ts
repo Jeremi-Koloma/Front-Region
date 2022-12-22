@@ -16,6 +16,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HttpClientModule } from '@angular/common/http';
 import { GestionUsersComponent } from './gestion-users/gestion-users.component';
 import { TokenInterceptorProvider } from './_helpers/token.interceptor';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -36,9 +38,11 @@ import { TokenInterceptorProvider } from './_helpers/token.interceptor';
   imports: [
     BrowserModule,
     ReactiveFormsModule, // Pour Activer ReactiveFormsModule après l'importation
-    AppRoutingModule,
+    AppRoutingModule, // le routage
     HttpClientModule, // Pour les Requêtes Http
-    FormsModule // pour les ngForm
+    FormsModule, // pour les ngForm
+    Ng2SearchPipeModule, // Pour la recheche
+    NgxPaginationModule // Pour la pagination
   ],
   providers: [TokenInterceptorProvider], // notre intercepteur des requêtte
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./region.component.css']
 })
 export class RegionComponent implements OnInit {
- 
-  constructor() { }
+
+  // Créons une variable qui va prendre une Array des Regions
+  regionList: any
+
+  // une variable pour la pagination
+  p : number = 1;
+
+ // Injectons le service HttpClient pour avoir accès au verbe http;
+  constructor(private http : HttpClient) { }
 
   ngOnInit(): void {
     // Pour le Menu
@@ -23,6 +31,16 @@ export class RegionComponent implements OnInit {
       }
     }); // Fin MENU
     
+
+    
+     // Lister les Regions;
+     this.http.get('http://localhost:8080/region/read').subscribe(
+      // La prémière méthode si ça marche
+      (regions) => {
+        console.log('------------- Liste Region -------', regions)
+        this.regionList = regions
+      })
+
 
 
   }

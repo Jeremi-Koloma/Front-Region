@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsRegionComponent implements OnInit {
 
+  
   constructor() { }
 
   ngOnInit(): void {
+    // Debut Menu
     var nav = document.querySelector('nav'); // cette variable nav est Binder avec la balise nav de de menu
 
     window.addEventListener('scroll', function(){
@@ -20,7 +22,8 @@ export class DetailsRegionComponent implements OnInit {
       else{
         nav!.classList.remove('bg-dark')
       }
-    });
+    }); // Fin MENU
+
   }
 
 }

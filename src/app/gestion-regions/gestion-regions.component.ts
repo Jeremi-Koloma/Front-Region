@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestionRegionsComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class GestionRegionsComponent implements OnInit {
       }
     });
     
+
   }
 
 }
