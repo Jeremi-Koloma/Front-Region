@@ -18,6 +18,8 @@ import { GestionUsersComponent } from './gestion-users/gestion-users.component';
 import { TokenInterceptorProvider } from './_helpers/token.interceptor';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PaysComponent } from './pays/pays.component';
+
 
 
 
@@ -33,7 +35,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DetailsRegionComponent,
     AjouterRegionComponent,
     PageNotFoundComponent,
-    GestionUsersComponent
+    GestionUsersComponent,
+    PaysComponent
   ],
   imports: [
     BrowserModule,

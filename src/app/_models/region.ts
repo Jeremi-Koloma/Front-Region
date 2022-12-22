@@ -10,5 +10,4 @@ export class Region {
     superficieRegion !: string;
 
     langueParler !: string;
-
 }

@@ -13,9 +13,9 @@ import { TokenService } from '../_services/token.service';
 export class LoginComponent implements OnInit {
   // Two way Binding | Récupération des valeurs dans le formulaire;
   // Le form sera de type Icredentials notre interface.
-  form : ICredential = {
-    username : '',
-    password : ''
+  form: ICredential = {
+    username: '',
+    password: ''
   }
 
   // Déclarons une variable de même nom que celui qui se trouve dans le formulaire html pour les Binder
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   // Dans le constructeur, importons FormBuilder de Angular pour le traitement du formulaire
   // Injectons notre Service d'Authentification dans le constructeur
   //Injectons le service Token dans le constructeur
-  constructor(private formBuilder: FormBuilder, private authService : AuthService, private tokenService : TokenService ) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     // Lorsque le component est initialiser, on utilise notre loginForm pour avoir accèss aux Groupe de FormBuilder qui est dans le constructeur;
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   // maintent créons une méthode pour le clic du bouttons validation
-  onSubmit(){ // le nom de cette méthode est dans le html
+  onSubmit() { // le nom de cette méthode est dans le html
     // changeons la variable de submitted à true;
     this.submitted = true
 
@@ -58,8 +58,8 @@ export class LoginComponent implements OnInit {
         // La prémière méthode si tout va bien
         data => {
           console.log(data.access_Token),
-          // Pour savegarder notre token dans le navigateur, on appel la méthode saveToken du serviceToken et on l'envoie note access_Token
-          this.tokenService.saveToken(data.access_Token)
+            // Pour savegarder notre token dans le navigateur, on appel la méthode saveToken du serviceToken et on l'envoie note access_Token
+            this.tokenService.saveToken(data.access_Token)
         },
         // Deuxième méthode si ya Erreur
         err => console.log(err)

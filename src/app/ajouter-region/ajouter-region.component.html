@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="bgFormulaire p-4 col-12 offset-md-3 col-md-6">
                     <div class="row">
-                        <form #regionForm="ngForm" (ngSubmit)="getRegionData(regionForm.value)">
+                        <form [formGroup]="formAddRegion" (ngSubmit)="getRegionData()">
                             <fieldset>
                                 <legend class="legend text-center fs-2">Ajouter une Région</legend>
                                 <hr>
@@ -53,15 +53,33 @@
                                 ------------------------------------------------------->
                                     <div class="form-group mb-3 col-12 col-md-6">
                                         <label for="regName"> Nom de Région</label>
-                                        <input type="text" ngModel class="form-control" id="regName" name="nomRegion"
-                                            placeholder="Bamako">
+                                        <input
+                                            [ngClass]="{'is-invalid' : submitted && formAddRegion.controls['nomRegion'].errors}"
+                                            type="text" class="form-control" id="regName" name="nomRegion"
+                                            placeholder="Bamako" formControlName="nomRegion">
+                                        <div *ngIf="submitted && formAddRegion.controls['nomRegion'].errors"
+                                            class="text-danger">
+                                            <div
+                                                *ngIf="submitted && formAddRegion.controls['nomRegion'].errors['required']">
+                                                Veillez remplir ce champs !
+                                            </div>
+                                        </div>
                                     </div>
                                     <!-- ------------------- Code Region ------------------------
-                                ------------------------------------------------------->
+                                    ------------------------------------------------------->
                                     <div class="form-group mb-3 col-12 col-md-6">
                                         <label for="codeRegion"> Code de Région</label>
-                                        <input type="text" ngModel class="form-control" id="codeRegion" name="codeRegion"
-                                            placeholder="Bko">
+                                        <input
+                                            [ngClass]="{'is-invalid' : submitted && formAddRegion.controls['codeRegion'].errors}"
+                                            type="text" class="form-control" id="codeRegion" name="codeRegion"
+                                            placeholder="Bko" formControlName="codeRegion">
+                                        <div *ngIf="submitted && formAddRegion.controls['codeRegion'].errors"
+                                            class="text-danger">
+                                            <div
+                                                *ngIf="submitted && formAddRegion.controls['codeRegion'].errors['required']">
+                                                Veillez remplir ce champs !
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -69,16 +87,34 @@
                                     <!-- ------------------- Domaine actibité ------------------------
                                 ------------------------------------------------------->
                                     <div class="form-group mb-3 col-12 col-md-6">
-                                        <label for="domRegion"> Domaine d'activité</label>
-                                        <input type="text" ngModel class="form-control" id="domRegion" name="activiteRegion"
-                                            placeholder="Business">
+                                        <label for="activiteRegion"> Domaine d'activité</label>
+                                        <input
+                                            [ngClass]="{'is-invalid' : submitted && formAddRegion.controls['activiteRegion'].errors}"
+                                            type="text" class="form-control" id="activiteRegion" name="activiteRegion"
+                                            placeholder="Business" formControlName="activiteRegion">
+                                        <div *ngIf="submitted && formAddRegion.controls['activiteRegion'].errors"
+                                            class="text-danger">
+                                            <div
+                                                *ngIf="submitted && formAddRegion.controls['activiteRegion'].errors['required']">
+                                                Veillez remplir ce champs !
+                                            </div>
+                                        </div>
                                     </div>
                                     <!-- ------------------- superficie ------------------------
                                 ------------------------------------------------------->
                                     <div class="form-group mb-3 col-12 col-md-6">
                                         <label for="superfRegion"> Superficie</label>
-                                        <input type="text" ngModel class="form-control" id="superfRegion" name="superficieRegion"
-                                            placeholder="11223 km2">
+                                        <input
+                                            [ngClass]="{'is-invalid' : submitted && formAddRegion.controls['superficieRegion'].errors}"
+                                            type="text" class="form-control" id="superfRegion" name="superficieRegion"
+                                            placeholder="11223 km2" formControlName="superficieRegion">
+                                        <div *ngIf="submitted && formAddRegion.controls['superficieRegion'].errors"
+                                            class="text-danger">
+                                            <div
+                                                *ngIf="submitted && formAddRegion.controls['superficieRegion'].errors['required']">
+                                                Veillez remplir ce champs !
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -94,17 +130,42 @@
                                  ------------------------------------------------------->
                                     <div class="form-group mb-3 col-12 col-md-6">
                                         <label for="langueRegion">Langue majoritaire</label>
-                                        <input type="text" ngModel class="form-control" id="langueRegion" name="langueParler"
-                                            placeholder="Bambara">
+                                        <input
+                                            [ngClass]="{'is-invalid' : submitted && formAddRegion.controls['langueParler'].errors}"
+                                            type="text" class="form-control" id="langueRegion" name="langueParler"
+                                            placeholder="Bambara" formControlName="langueParler">
+                                        <div *ngIf="submitted && formAddRegion.controls['langueParler'].errors"
+                                            class="text-danger">
+                                            <div
+                                                *ngIf="submitted && formAddRegion.controls['langueParler'].errors['required']">
+                                                Veillez remplir ce champs !
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- ------------------- Image Région ------------------------
-                            --------------------------------------------------------------->
+                                --------------------------------------------------------------->
                                 <div class="form-group mb-3 col-12 col-md-6">
                                     <label for="fileRegion">Image du Région</label>
-                                    <input type="file" class="form-control" id="fileRegion" name="fileRegion">
+                                    <input
+                                        [ngClass]="{'is-invalid' : submitted && formAddRegion.controls['file'].errors}"
+                                        type="file" class="form-control" id="fileRegion" name="file"
+                                        (change)="fileChang($event)" formControlName="file">
+                                    <div *ngIf="submitted && formAddRegion.controls['file'].errors" class="text-danger">
+                                        <div *ngIf="submitted && formAddRegion.controls['file'].errors['required']">
+                                            Veillez remplir ce champs !
+                                        </div>
+                                    </div>
                                 </div>
 
+                                <!-- ------------------- Image Région ------------------------
+                                --------------------------------------------------------------->
+                                <div class="form-group mb-3 col-12 col-md-6">
+                                    <select class="form-select form-select" aria-label=".form-select-sm example" *ngFor="let pays of Pays">
+                                        <option selected>Pays</option>
+                                        <option value="{{pays.idPays}}">{{pays.nomPays}}</option>
+                                    </select>
+                                </div>
                                 <!-- ------------------- Boutton Ajouter ------------------------
                             --------------------------------------------------------------->
                                 <button class="btn btnAjouterRegion col-md-12">Ajouter</button>
@@ -113,49 +174,49 @@
                     </div>
                 </div>
             </div>
-            </div>
         </div>
+    </div>
 
 
-            <!-- ---------------- Footer ---------------------------------------
+    <!-- ---------------- Footer ---------------------------------------
             ---------------------------------------------------------------------
           ------------------------------------------------------------------->
 
-            <footer class="container-fluid footer bg-footer footer-bar">
-                <link rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
-                    integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+    <footer class="container-fluid footer bg-footer footer-bar">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+            integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
 
-                <div class="container text-center">
-                    <p>&copy; 2022 MaliTourist - Tous drois reservé<br>
-                        Voyage - Tourisme - Evasion - Aventure
-                    </p>
+        <div class="container text-center">
+            <p>&copy; 2022 MaliTourist - Tous drois reservé<br>
+                Voyage - Tourisme - Evasion - Aventure
+            </p>
 
-                    <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="text-sm-left">
-                                <p class="mb-0">&copy; Jeremi KOLOMA <i class="mdi mdi-heart text-danger"></i></p>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                            <ul class="list-unstyled text-sm-right social-icon social mb-0">
-                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                                            class="mdi mdi-facebook" title="Facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                                            class="mdi mdi-instagram" title="Instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                                            class="mdi mdi-twitter" title="Twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                                            class="mdi mdi-google-plus" title="Google +"></i></a></li>
-                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
-                                            class="mdi mdi-linkedin" title="Linkedin"></i></a></li>
-                            </ul>
-                        </div>
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <div class="text-sm-left">
+                        <p class="mb-0">&copy; Jeremi KOLOMA <i class="mdi mdi-heart text-danger"></i></p>
                     </div>
                 </div>
-            </footer>
-        
- 
+
+                <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <ul class="list-unstyled text-sm-right social-icon social mb-0">
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
+                                    class="mdi mdi-facebook" title="Facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
+                                    class="mdi mdi-instagram" title="Instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
+                                    class="mdi mdi-twitter" title="Twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
+                                    class="mdi mdi-google-plus" title="Google +"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i
+                                    class="mdi mdi-linkedin" title="Linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
 
 </div>
